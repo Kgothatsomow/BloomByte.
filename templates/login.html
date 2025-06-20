@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="card animate__animated animate__fadeInDown" data-aos="zoom-in" style="max-width: 420px; width: 100%; box-sizing: border-box;">
+    <h2>🔒 Login to BloomByte</h2>
+
+    {% if error %}
+      <p style="color: crimson; font-weight: bold;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/login" style="width: 100%;">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <p style="margin-top: 1rem;">
+      New here? <a href="/register">Create an account</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("registered") === "true") {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  }
+</script>
+{% endblock %}

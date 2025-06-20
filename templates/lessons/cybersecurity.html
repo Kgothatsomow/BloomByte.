@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    <h2>🔐 Cybersecurity Fundamentals</h2>
+    <p>Protect your data, devices, and users from digital threats.</p>
+    <h3>🛡️ CIA Triad</h3>
+    <ul style="text-align: left;">
+      <li><strong>Confidentiality</strong>: Keep data private</li>
+      <li><strong>Integrity</strong>: Prevent tampering</li>
+      <li><strong>Availability</strong>: Ensure access when needed</li>
+    </ul>
+    <h3>⚠️ Common Threats</h3>
+    <ul style="text-align: left;">
+      <li>Phishing</li>
+      <li>Malware</li>
+      <li>Weak passwords</li>
+    </ul>
+    <h3>🧪 Example</h3>
+    <p>Use <code>bcrypt</code> to hash passwords before storing them in your database.</p>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 2rem; text-align: left;">
+  <h3>🧠 Quick Quiz</h3>
+  <p><strong>1. What does the "I" in the CIA triad stand for?</strong></p>
+
+  <ul style="list-style: none; padding-left: 0;">
+    <li><button onclick="checkAnswer(this, false)">A. Identity</button></li>
+    <li><button onclick="checkAnswer(this, true)">B. Integrity</button></li>
+    <li><button onclick="checkAnswer(this, false)">C. Infrastructure</button></li>
+    <li><button onclick="checkAnswer(this, false)">D. Investigation</button></li>
+  </ul>
+
+  <div id="feedback-cyber" style="margin-top: 1rem; font-weight: bold;"></div>
+</div>
+
+<script>
+function checkAnswer(button, isCorrect) {
+  const feedback = button.closest('.card').querySelector('div[id^="feedback"]');
+  feedback.innerHTML = isCorrect
+    ? "✔ Correct! Integrity ensures data hasn’t been tampered with."
+    : "❌ Not quite. Review the CIA triad section above.";
+  feedback.style.color = isCorrect ? "green" : "red";
+}
+</script>
+{% endblock %}

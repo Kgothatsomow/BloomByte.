@@ -1,0 +1,271 @@
+/* 🌿 Global Layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #2e2e2e;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  background: linear-gradient(135deg, #fdf6f0, #e0f7fa);
+  background-image: url("https://www.transparenttextures.com/patterns/cream-dust.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: auto;
+}
+
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* 🌸 Floral Header */
+header {
+  background-image: url("https://www.transparenttextures.com/patterns/flowers.png");
+  background-color: #ffe0f0;
+  background-repeat: repeat;
+  color: #2e2e2e;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.dark-mode .tagline {
+  color: #ccc;
+}
+
+/* 🌍 Controls: Language & Mode Switch */
+header div {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header select,
+header button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+header button {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dark-mode header button {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+/* ✨ Card & Container Design */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: #ffffffee;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.dark-mode .card {
+  background-color: #222;
+  color: #fff;
+}
+
+/* 📚 Lesson Grid */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.lesson-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.lesson-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .lesson-card {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔘 Buttons & Interactivity */
+main .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+main .buttons a,
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+main .buttons a:hover,
+button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+/* 📥 Forms */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form .form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  background-color: #fff;
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+.card input,
+.card textarea,
+.card button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button[type="submit"] {
+  margin-top: 1rem;
+}
+
+.message {
+  color: #4caf50;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 600px) {
+  header div {
+    flex-direction: column;
+    align-items: flex-start;
+    position: static;
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  header select,
+  header button {
+    width: 100%;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 1.5rem 1rem;
+  }
+
+  main .buttons {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 601px) {
+  main .buttons {
+    flex-direction: row;
+  }
+}

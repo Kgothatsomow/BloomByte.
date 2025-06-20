@@ -1,34 +1,15 @@
-<!--My Homepage for BloomByte-->
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div class="card animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2 style="font-size: 2.5rem;">🌼 Welcome back, {{ session['username'] }}!</h2>
+    <p style="font-size: 1.2rem; margin-top: 1rem;">Choose where to grow next:</p>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ lang.title }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
-<body>
-  <header>
-    <h1>🌱 BloomByte</h1>
-    <p class="tagline">{{ lang.tagline }}</p>
-  </header>
-
-  <nav class="language-switcher">
-    <a href="/set_language/en">🇬🇧</a>
-    <a href="/set_language/ts">🇿🇦</a>
-    <a href="/set_language/af">🇿🇦</a>
-  </nav>
-
-  <main>
-    <div class="buttons">
-      <a href="/sandbox">{{ lang.sandbox }}</a>
-      <a href="/lesson">{{ lang.lessons }}</a>
-      <a href="/feedback">{{ lang.feedback }}</a>
+    <div class="buttons" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem;">
+      <a href="/profile">👤 View Profile</a>
+      <a href="{{ url_for('lesson') }}">📚 Start Learning</a>
+      <a href="/feedback">💬 Give Feedback</a>
     </div>
-  </main>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}

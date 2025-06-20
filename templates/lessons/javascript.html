@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    <h2>⚙️ JavaScript Basics</h2>
+    <p>JavaScript adds interactivity to your site—like buttons, animations, and logic.</p>
+    <h3>🧠 Concepts</h3>
+    <ul style="text-align: left;">
+      <li>Variables: <code>let name = "Bloom";</code></li>
+      <li>Functions: <code>function greet() { alert("Hi!"); }</code></li>
+      <li>Events: <code>button.addEventListener("click", ...)</code></li>
+    </ul>
+    <h3>🧪 Example</h3>
+    <pre style="text-align: left; background:#f5f5f5; padding:1rem;">
+document.querySelector("button").addEventListener("click", () => {
+  alert("You clicked me!");
+});
+    </pre>
+  </div>
+</div>
+<div class="card" style="margin-top: 2rem; text-align: left;">
+  <h3>🧠 Quick Quiz</h3>
+  <p><strong>1. What does <code>document.querySelector()</code> do?</strong></p>
+
+  <ul style="list-style: none; padding-left: 0;">
+    <li><button onclick="checkAnswer(this, false)">A. It creates a new HTML element</button></li>
+    <li><button onclick="checkAnswer(this, true)">B. It selects the first matching element in the DOM</button></li>
+    <li><button onclick="checkAnswer(this, false)">C. It deletes an element from the page</button></li>
+    <li><button onclick="checkAnswer(this, false)">D. It adds a new CSS class to all elements</button></li>
+  </ul>
+
+  <div id="feedback-js" style="margin-top: 1rem; font-weight: bold;"></div>
+</div>
+
+<script>
+function checkAnswer(button, isCorrect) {
+  const feedback = button.closest('.card').querySelector('div[id^="feedback"]');
+  feedback.innerHTML = isCorrect
+    ? "✔ Correct! <code>querySelector()</code> grabs the first match."
+    : "❌ Not quite. Try reviewing the DOM section above.";
+  feedback.style.color = isCorrect ? "green" : "red";
+}
+</script>
+{% endblock %}

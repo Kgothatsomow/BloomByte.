@@ -1,70 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ lang.feedback }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <style>
-    form {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    textarea {
-      width: 100%;
-      height: 150px;
-      padding: 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      resize: vertical;
-      font-family: inherit;
-    }
-
-    button {
-      margin-top: 1rem;
-      background-color: #4caf50;
-      color: white;
-      padding: 0.7rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #388e3c;
-    }
-
-    .thanks {
-      color: #4caf50;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>{{ lang.feedback }}</h1>
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="card animate__animated animate__fadeIn" data-aos="zoom-in" style="max-width: 500px; width: 100%; box-sizing: border-box;">
+    <h2>{{ lang.feedback }}</h2>
     <p>{{ lang.tagline }}</p>
-  </header>
 
-  <form method="POST" action="/feedback">
-    <label for="message">Your thoughts or ideas:</label>
-    <textarea name="message" id="message" placeholder="Write here..."></textarea>
-    <button type="submit">Send</button>
-  </form>
+    <form method="POST" action="/feedback" style="width: 100%;">
+      <textarea name="message" id="message" placeholder="Your thoughts or ideas..." rows="5" required></textarea>
+      <button type="submit">Send Feedback</button>
+    </form>
 
-  <div id="alert" style="display:none;" class="thanks"></div>
-
-  {% if success %}
-  <div class="thanks">
-    ✨ Thanks for helping BloomByte grow!
+    {% if success %}
+      <div class="message" style="color: #4caf50; margin-top: 1rem; font-weight: bold;">
+        ✨ Thanks for helping BloomByte grow!
+      </div>
+    {% endif %}
   </div>
-  {% endif %}
-</body>
-</html>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BloomByte</title>
+
+  <!-- 🌿 Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- 🎉 Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🌱 BloomByte</h1>
+    <p class="tagline">{{ lang.tagline }}</p>
+
+    <div style="position: absolute; top: 1rem; right: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+      <!-- 🌐 Language Dropdown -->
+      <form method="GET" action="/set_language">
+        <label for="language" style="font-weight: bold;">🌐</label>
+        <select name="lang_code" id="language" onchange="this.form.submit()" style="padding: 0.3rem;">
+          <option value="en" {% if session.get('lang') == 'en' %}selected{% endif %}>English</option>
+          <option value="sw" {% if session.get('lang') == 'sw' %}selected{% endif %}>Swahili</option>
+          <option value="af" {% if session.get('lang') == 'af' %}selected{% endif %}>Afrikaans</option>
+        </select>
+      </form>
+
+      <!-- 🌓 Dark Mode Button -->
+      <button onclick="toggleMode()">
+        🌓 {{ lang.toggle_mode or "Toggle Mode" }}
+
+        {% if session.get('username') %}
+  
+      </button>
+    </div>
+    <a href="{{ url_for('logout') }}" style="margin-left: 1rem; font-weight: bold;">🔓 Logout</a>
+{% endif %}
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer>
+    <p>{{ lang.footer_credit or "🌸 Made with love by Kgothatso • BloomByte" }}</p>
+  </footer>
+
+  <!-- ✨ Scroll Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init();</script>
+
+  {% block scripts %}
+  <script>
+    // 🌗 Dark mode toggle with persistence
+    if (localStorage.getItem("mode") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("mode", mode);
+    }
+
+    // 🎉 Celebrate if redirected with ?celebrate=true
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("celebrate") === "true") {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+  {% endblock %}
+</body>
+</html>

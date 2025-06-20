@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+  <div class="card animate__animated animate__fadeInDown" data-aos="zoom-in" style="max-width: 420px; width: 100%; box-sizing: border-box; text-align: center;">
+    
+    <!-- 🌸 Flower & Dynamic Quote -->
+<div id="quote-block" style="margin-bottom: 1rem; text-align: center;">
+  <div style="font-size: 2.5rem;">🌸</div>
+  <blockquote id="quote-text" style="margin: 0.5rem 0; font-style: italic; color: #555;">
+    "Every flower blooms at its own pace."
+  </blockquote>
+</div>
+
+    <h2>Create an Account</h2>
+
+    {% if error %}
+      <p style="color: crimson; font-weight: bold;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/register" style="width: 100%;">
+      <input type="text" name="username" placeholder="Choose a username" required />
+      <input type="password" name="password" placeholder="Create a password" required />
+      <button type="submit">Register</button>
+    </form>
+
+    <p style="margin-top: 1rem;">
+      Already have an account? <a href="/login">Login here</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

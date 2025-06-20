@@ -1,71 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ lang.lessons }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <style>
-    .lesson-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      padding: 1.5rem;
-    }
-
-    .lesson-card {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .lesson-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .lesson-card h3 {
-      color: #4caf50;
-      margin-bottom: 0.5rem;
-    }
-
-    .lesson-card p {
-      color: #444;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>{{ lang.lessons }}</h1>
-    <p>{{ lang.tagline }}</p>
-  </header>
-
-  <section class="lesson-grid">
-    <div class="lesson-card">
-      <h3>🌼 {{ lang.start }}: HTML Basics</h3>
-      <p>Structure a web page using HTML tags like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;a&gt;</code>.</p>
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="min-height: 80vh;">
+  <div class="card animate__animated animate__fadeIn" data-aos="fade-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+    
+    <div id="quote-block" style="margin-bottom: 1rem;">
+      <div style="font-size: 2.5rem;">🌸</div>
+      <blockquote id="quote-text" style="font-style: italic; color: #555;">
+        "Every flower blooms at its own pace."
+      </blockquote>
     </div>
 
-    <div class="lesson-card">
-      <h3>🎨 Styling with CSS</h3>
-      <p>Use colors, fonts, and layout tricks to make your page bloom with beauty.</p>
-    </div>
+    <h2>📚 Your Lessons</h2>
+    <p>Keep growing your knowledge, one petal at a time.</p>
 
-    <div class="lesson-card">
-      <h3>⚡ Intro to JavaScript</h3>
-      <p>Make your page come alive with simple events and logic.</p>
+    <div class="lesson-grid" style="margin-top: 2rem;">
+
+      <!-- Cybersecurity -->
+      <div class="lesson-card">
+        <h3>🔐 Cybersecurity Fundamentals</h3>
+        <p>Understand the CIA triad, threats, and essential protections.</p>
+        <a href="{{ url_for('lesson_detail', topic='cybersecurity') }}">Read more →</a>
+      </div>
+
+      <!-- HTML -->
+      <div class="lesson-card">
+        <h3>🌐 HTML Essentials</h3>
+        <p>Structure your page with clean semantic markup.</p>
+        <a href="{{ url_for('lesson_detail', topic='html') }}">Read more →</a>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="lesson-card">
+        <h3>⚙️ JavaScript Basics</h3>
+        <p>Make your site dynamic and interactive using JS.</p>
+        <a href="{{ url_for('lesson_detail', topic='javascript') }}">Read more →</a>
+      </div>
+
+      <!-- Networking -->
+      <div class="lesson-card">
+        <h3>🌐 Intro to Networking</h3>
+        <p>Explore how devices communicate via IP, DNS, and protocols.</p>
+        <a href="{{ url_for('lesson_detail', topic='networking') }}">Read more →</a>
+      </div>
+
     </div>
-  </section>
- 
-  <div class="lesson-card" data-topic="html">
-  <h3>🌼 HTML Basics</h3>
-  <p>Learn how to structure web pages.</p>
+  </div>
 </div>
+{% endblock %}
 
-<div class="buttons">
-  <button onclick="filterLessons('all')">All</button>
-  <button onclick="filterLessons('html')">HTML</button>
-  <button onclick="filterLessons('css')">CSS</button>
-</div>
-</body>
-</html>
+{% block scripts %}
+{{ super() }}
+<script>
+  const quotes = [
+    "Growth is learning again and again.",
+    "You don’t have to know everything to begin.",
+    "Each lesson adds a new leaf to your garden.",
+    "Every click is a step forward.",
+    "Let curiosity be your sunlight."
+  ];
+  document.getElementById("quote-text").textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+</script>
+{% endblock %}

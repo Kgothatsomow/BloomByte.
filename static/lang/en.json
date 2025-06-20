@@ -1,9 +1,20 @@
 {
-  "title": "Welcome to BloomByte",
-  "tagline": "Because even pixels deserve to grow",
-  "start": "Start Learning",
-  "sandbox": "Code Playground",
+  "tagline": "Learn. Grow. Bloom.",
+  "feedback": "Feedback",
+  "submit": "Submit",
+  "username": "Username",
+  "password": "Password",
+  "login": "Login",
+  "register": "Register",
+  "logout": "Logout",
+  "create_account": "Create an Account",
+  "already_account": "Already have an account?",
+  "new_here": "New here?",
+  "welcome": "Welcome",
   "lessons": "Lessons",
-  "language": "Language",
-  "feedback": "Send Feedback"
+  "sandbox": "Sandbox",
+  "profile": "Profile",
+  "send_feedback": "Send Feedback",
+  "toggle_mode": "Toggle Mode",
+  "footer_credit": "🌸 Made with love by Kgothatso • BloomByte"
 }

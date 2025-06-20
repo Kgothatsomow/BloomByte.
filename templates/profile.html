@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+  <div class="card animate__animated animate__fadeIn" data-aos="fade-up" style="max-width: 500px; width: 100%; text-align: center;">
+    
+    <div id="quote-block" style="margin-bottom: 1rem;">
+      <div style="font-size: 2.5rem;">🌸</div>
+      <blockquote id="quote-text" style="font-style: italic; color: #555;">"Every flower blooms at its own pace."</blockquote>
+    </div>
+
+    <h2>🌿 Welcome to your Garden, {{ username }}!</h2>
+    <p>This space is yours to grow, reflect, and thrive.</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  const quotes = [
+    "Take pride in how far you've come.",
+    "Gardens thrive when they're tended with care.",
+    "Your progress is quietly blooming.",
+    "No two gardens are alike—and that's beautiful.",
+    "Growth is a daily act of courage."
+  ];
+  document.getElementById("quote-text").textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+</script>
+{% endblock %}

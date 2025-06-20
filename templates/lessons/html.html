@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="card">
+    <h2>🌐 HTML Essentials</h2>
+    <p>HTML (HyperText Markup Language) is the backbone of every web page. It defines the structure and content.</p>
+    <h3>🔤 Common Tags</h3>
+    <ul style="text-align: left;">
+      <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Headings</li>
+      <li><code>&lt;p&gt;</code>: Paragraph</li>
+      <li><code>&lt;a href=""&gt;</code>: Link</li>
+      <li><code>&lt;img src=""&gt;</code>: Image</li>
+      <li><code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>: Containers</li>
+    </ul>
+    <h3>🧪 Example</h3>
+    <pre style="text-align: left; background:#f5f5f5; padding:1rem;">
+&lt;h1&gt;Welcome to BloomByte&lt;/h1&gt;
+&lt;p&gt;This is your first lesson.&lt;/p&gt;
+    </pre>
+  </div>
+</div>
+<div class="card" style="margin-top: 2rem; text-align: left;">
+  <h3>🧠 Quick Quiz</h3>
+  <p><strong>1. Which tag defines a paragraph in HTML?</strong></p>
+
+  <ul style="list-style: none; padding-left: 0;">
+    <li><button onclick="checkAnswer(this, false)">A. &lt;div&gt;</button></li>
+    <li><button onclick="checkAnswer(this, true)">B. &lt;p&gt;</button></li>
+    <li><button onclick="checkAnswer(this, false)">C. &lt;span&gt;</button></li>
+    <li><button onclick="checkAnswer(this, false)">D. &lt;text&gt;</button></li>
+  </ul>
+
+  <div id="feedback" style="margin-top: 1rem; font-weight: bold;"></div>
+</div>
+<script>
+function checkAnswer(button, isCorrect) {
+  const feedback = document.getElementById("feedback");
+  feedback.innerText = isCorrect
+    ? "✔ Correct! <p>Yes, <p> is used for paragraphs."
+    : "❌ Nope! Try again or review the lesson.";
+  feedback.style.color = isCorrect ? "green" : "red";
+}
+</script>
+{% endblock %}

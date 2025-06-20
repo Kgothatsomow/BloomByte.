@@ -1,9 +1,20 @@
 {
-  "title": "Welkom by BloomByte",
-  "tagline": "Selfs pixels verdien om te groei",
-  "start": "Begin Leer",
-  "sandbox": "Kode Speelgrond",
+  "tagline": "Leer. Groei. Bloeisels.",
+  "feedback": "Terugvoer",
+  "submit": "Indien",
+  "username": "Gebruikersnaam",
+  "password": "Wagwoord",
+  "login": "Teken in",
+  "register": "Registreer",
+  "logout": "Teken uit",
+  "create_account": "Skep 'n Rekening",
+  "already_account": "Het jy reeds 'n rekening?",
+  "new_here": "Nuut hier?",
+  "welcome": "Welkom",
   "lessons": "Lesse",
-  "language": "Taal",
-  "feedback": "Stuur Terugvoer"
+  "sandbox": "Speelgrond",
+  "profile": "Profiel",
+  "send_feedback": "Stuur Terugvoer",
+  "toggle_mode": "Skakel Modus",
+  "footer_credit": "🌸 Gemaak met liefde deur Kgothatso • BloomByte"
 }

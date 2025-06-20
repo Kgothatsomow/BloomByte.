@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ lang.sandbox }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .editor-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-family: monospace;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 250px;
+      background-color: #fff;
+      margin-top: 1rem;
+    }
+
+    button.run-btn {
+      padding: 0.7rem 1.5rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button.run-btn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ lang.sandbox }}</h1>
+    <p>{{ lang.tagline }}</p>
+  </header>
+
+  <div class="editor-container">
+    <textarea id="html" placeholder="HTML"></textarea>
+    <textarea id="css" placeholder="CSS"></textarea>
+    <textarea id="js" placeholder="JavaScript"></textarea>
+    <button class="run-btn" onclick="runCode()">Run Code</button>
+    <iframe id="output"></iframe>
+  </div>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById("html").value;
+      const css = "<style>" + document.getElementById("css").value + "</style>";
+      const js = "<script>" + document.getElementById("js").value + "<\/script>";
+      const output = document.getElementById("output");
+      output.srcdoc = html + css + js;
+    }
+  </script>
+</body>
+</html>

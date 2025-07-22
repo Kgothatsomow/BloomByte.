@@ -36,25 +36,8 @@
 - **SQLite3** for lightweight database storage
 - **Jinja2** templates & language JSON files
 
-1. Push this project to your GitHub
-2. Go to [Render](https://render.com), log in, and click **"New Web Service"**
-3. Connect your GitHub repo
-4. Set these commands:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python app.py`
-5. Done! You’ll receive a live URL like `https://bloombyte.onrender.com`
-
-## 📦 Local Installation
-
-```terminal
-git clone https://github.com/YOUR_USERNAME/BloomByte.git
-cd BloomByte
-pip install -r requirements.txt
-python app.py
-
 ## 👩🏽‍💻 Created by
 
 **Kgothatso Molapo**  
 Aspiring cybersecurity professional, frontend developer, and creative technologist.  
 Fueled by curiosity, color, and code 🌱💻🎨  
-[GitHub Profile](https://github.com/YOUR_USERNAME)

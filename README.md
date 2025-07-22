@@ -11,24 +11,6 @@
 - 🔐 Secure user registration and login system
 - 🌿 Personal dashboard (“My Garden”) for logged-in users
 
-
-## 🔧 How to Run the App Locally
-
-1. Clone the repo:
-   git clone https://github.com/your-username/BloomByte.git
-
-2. Navigate into the project:
-   cd BloomByte
-
-3. Install dependencies:
-   pip install -r requirements.txt
-
-4. Run the app:
-   python app.py
-
-5. Visit in your browser:
-   http://127.0.0.1:5000
-
 ## 💻 Tech Stack
 
 - **Python** + **Flask**
